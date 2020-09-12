@@ -1,3 +1,5 @@
+// ===============================homepage component of our react app===========================
+
 import React, { Component } from "react";
 import AskOtp from "./AskOtp";
 import ReactFlagsSelect from "react-flags-select";
@@ -6,6 +8,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Container, Row, Col } from "react-bootstrap";
 import img1 from "../images/AK_logo.png";
+
 
 class App extends Component {
   constructor(props) {
@@ -27,7 +30,7 @@ class App extends Component {
     const { value, countryCode } = this.state;
     event.preventDefault();
 
-    let pattern = new RegExp(/^[0-9\b]+$/);
+    let pattern = new RegExp(/^[0-9\b]+$/);        // phone number input field verification
     if (value.length === 10 && pattern.test(value)) {
       localStorage.setItem("otp", "1234");
       let finalNumber = countryCode + value;
@@ -53,6 +56,9 @@ class App extends Component {
       });
     }
   };
+
+
+  // ====================================to select country code===================================
 
   onSelectFlag = (countryCode) => {
     this.setState({
@@ -115,6 +121,9 @@ class App extends Component {
             </Row>
           </Container>
         )}
+
+        {/* =================next component for otp verfication========================== */}
+
         {askOtp && <AskOtp phoneNumber={fullNumber} />}
       </div>
     );

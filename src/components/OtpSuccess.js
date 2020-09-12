@@ -1,3 +1,5 @@
+// ===================================component after successfull otp validation=======================================
+
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import img1 from "../images/otpSuccess.png";

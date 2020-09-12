@@ -1,3 +1,5 @@
+// ===============================otp verfication for given phone number============================================
+
 import React, { Component } from "react";
 import OtpSuccess from "./OtpSuccess";
 import { toast } from "react-toastify";
@@ -23,6 +25,8 @@ class AskOtp extends Component {
     this.textInput2 = React.createRef();
     this.textInput3 = React.createRef();
   }
+
+  // ==================================handle all OTP input fields=====================================================
 
   handleChange = (event) => {
     this.setState({ text1: event.target.value });
@@ -51,15 +55,19 @@ class AskOtp extends Component {
     this.setState({ otp: finalotp });
   };
 
+  // ========================================validate the otp for next page================================================
+
   handleSubmit = (event) => {
     event.preventDefault();
     if (localStorage.getItem("otp") === this.state.otp) {
+      //========if validation successfull===========================
       this.setState({
         askOtp: false,
         otpSuccess: true,
       });
     } else {
       toast("Incorrect OTP! Renter correct OTP.", {
+        //==============if validation fails=======================================
         position: "top-right",
         type: "info",
         autoClose: 5000,
@@ -178,6 +186,9 @@ class AskOtp extends Component {
             </Row>
           </Container>
         )}
+
+        {/* ==================================next component if otp validation is successfull===================== */}
+
         {otpSuccess && <OtpSuccess />}
       </div>
     );
