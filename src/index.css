@@ -1,3 +1,7 @@
+body {
+  font-family: Work Sans;
+}
+
 .innerdiv {
   display: flex;
   flex-direction: column;
@@ -10,8 +14,7 @@
 }
 
 #welcome-text {
-  font-size: 1.4rem;
-  font-weight: 500;
+  font-size: 1.8rem;
   display: inline-block;
   margin-top: 90px;
 }
@@ -97,9 +100,9 @@
   position: absolute;
   border: 1px solid #ffd37d;
   height: 43px;
-  width: 198px;
+  width: 176px;
   top: 10px;
-  left: 163px;
+  left: 174px;
   border-left: 0px;
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
@@ -109,7 +112,7 @@
   position: absolute;
   border-bottom: 1px solid #ffd37d;
   height: 0;
-  width: 137px;
+  width: 148px;
   top: 52px;
   left: 26px;
 }
@@ -119,5 +122,128 @@
 }
 
 #otpsentimage {
-  margin-top: 84px;
+  margin-top: 45px;
+}
+
+#otp-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#verify-text {
+  margin-top: 48px;
+  font-size: 1.3rem;
+}
+
+#phone-number-text {
+  margin-top: 33px;
+  color: #8c8c8c;
+}
+
+#changenumberbutton {
+  border: 0;
+  background: none;
+  color: #f7b348;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+.boxes {
+  height: 48px;
+  width: 48px;
+  border-radius: 5px;
+  border: 1px solid gainsboro;
+  margin-right: 20px;
+  text-align: center;
+  font-size: 22px;
+}
+
+#box1 {
+  margin-left: 24px;
+}
+
+.digitbox {
+  margin-top: 90px;
+}
+
+#resend-text {
+  margin-top: 82px;
+  display: inline-block;
+  color: #a39f9f;
+}
+
+#verify-button {
+  display: block;
+  border: 0;
+  background-color: #f7b348;
+  height: 40px;
+  margin-top: 25px;
+  width: 210px;
+  border-radius: 20px;
+  color: white;
+}
+
+#resend-button {
+  border: 0;
+  background: none;
+  color: #f7b348;
+  margin-left: 18px;
+}
+
+#imagecontainer2 {
+  position: relative;
+}
+
+#innerBoxContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#imagepart2 {
+  position: absolute;
+  top: 265px;
+  right: -15px;
+}
+
+#welcome-text2 {
+  margin-top: 36px;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+#line-text1 {
+  margin-top: 16px;
+  color: #aca6a6;
+}
+
+#line-text2 {
+  color: #aca6a6;
+}
+
+#line-text3 {
+  font-weight: 600;
+  color: #666666;
+}
+
+#getstartedbutton {
+  margin-top: 85px;
+  border: 0;
+  background: #f7b348;
+  height: 40px;
+  width: 154px;
+  border-radius: 20px;
+  color: white;
+  font-weight: 500;
+}
+
+#last-text {
+  font-size: 0.9rem;
+  color: gray;
+}
+
+#innerphonenumber {
+  color: black;
 }

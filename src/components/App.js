@@ -11,8 +11,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      homePage: false,
-      askOtp: true,
+      homePage: true,
+      askOtp: false,
       value: "",
       countryCode: "+1",
 
@@ -63,58 +63,60 @@ class App extends Component {
   render() {
     const { homePage, askOtp, value, fullNumber } = this.state;
     return (
-      <Container className="mycontainer" fluid>
-        <Row className="myrow" noGutters>
-          <Col className="mycolumn" lg={3}></Col>
-          <Col className="mycolumn midcolumn" lg={6}>
-            {homePage && (
-              <div className="innerdiv">
-                <div id="mainimage-container">
-                  <img src={img1} className="headimage" alt="App heading" />
-                </div>
-
-                <span id="welcome-text">Welcome Back</span>
-                <span id="signin-text">Please sign in to your account.</span>
-
-                <form onSubmit={this.handleSubmit} id="main-form">
-                  <div id="numberinput">
-                    <div id="left-block"></div>
-                    <span id="numberinputlabel">Enter Contact Number</span>
-                    <div id="right-block"></div>
-                    <ReactFlagsSelect
-                      defaultCountry="US"
-                      searchable={true}
-                      onSelect={this.onSelectFlag}
-                      showSelectedLabel={false}
-                      className="my-flag"
-                    />
-                    <input
-                      className="number-input"
-                      type="text"
-                      value={value}
-                      onChange={this.handleChange}
-                    />
-                    <div id="bottom-block"></div>
+      <div>
+        {homePage && (
+          <Container className="mycontainer" fluid>
+            <Row className="myrow" noGutters>
+              <Col className="mycolumn" lg={3}></Col>
+              <Col className="mycolumn midcolumn" lg={6}>
+                <div className="innerdiv">
+                  <div id="mainimage-container">
+                    <img src={img1} className="headimage" alt="App heading" />
                   </div>
 
-                  <span className="info-text">
-                    We will send you one time SMS message.
-                  </span>
-                  <span className="info-text2">Charges may apply.</span>
+                  <span id="welcome-text">Welcome Back</span>
+                  <span id="signin-text">Please sign in to your account</span>
 
-                  <input
-                    id="mainform-submit"
-                    type="submit"
-                    value="Sign in with OTP"
-                  />
-                </form>
-              </div>
-            )}
-            {askOtp && <AskOtp phoneNumber={fullNumber} />}
-          </Col>
-          <Col className="mycolumn" lg={3}></Col>
-        </Row>
-      </Container>
+                  <form onSubmit={this.handleSubmit} id="main-form">
+                    <div id="numberinput">
+                      <div id="left-block"></div>
+                      <span id="numberinputlabel">Enter Contact Number</span>
+                      <div id="right-block"></div>
+                      <ReactFlagsSelect
+                        defaultCountry="US"
+                        searchable={true}
+                        onSelect={this.onSelectFlag}
+                        showSelectedLabel={false}
+                        className="my-flag"
+                      />
+                      <input
+                        className="number-input"
+                        type="text"
+                        value={value}
+                        onChange={this.handleChange}
+                      />
+                      <div id="bottom-block"></div>
+                    </div>
+
+                    <span className="info-text">
+                      We will send you one time SMS message.
+                    </span>
+                    <span className="info-text2">Charges may apply.</span>
+
+                    <input
+                      id="mainform-submit"
+                      type="submit"
+                      value="Sign in with OTP"
+                    />
+                  </form>
+                </div>
+              </Col>
+              <Col className="mycolumn" lg={3}></Col>
+            </Row>
+          </Container>
+        )}
+        {askOtp && <AskOtp phoneNumber={fullNumber} />}
+      </div>
     );
   }
 }
