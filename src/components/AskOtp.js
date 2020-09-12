@@ -3,6 +3,8 @@ import OtpSuccess from "./OtpSuccess";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import App from "./App";
+import { Container, Row, Col } from "react-bootstrap";
+import img1 from "../images/otpSend.png";
 
 class AskOtp extends Component {
   constructor(props) {
@@ -66,28 +68,48 @@ class AskOtp extends Component {
   render() {
     const { mainScreen, teleNumber, otpSuccess, askOtp } = this.state;
     return (
-      <div>
-        {mainScreen && <App />}
-        {askOtp && (
-          <div>
-            Hello user your number is: {teleNumber}
-            <br />
-            <button onClick={this.handleClick}>
-              {" "}
-              Wrong number re-enter your number!{" "}
-            </button>
-            <form onSubmit={this.handleSubmit}>
-              <label>
-                <input value={this.state.value} onChange={this.handleChange} />
-              </label>
-              <input type="submit" value="Submit" />
-            </form>
-            <span>Didn't receive OTP!</span>
-            <button onClick={this.handleClick1}> Resend OTP </button>
-          </div>
-        )}
-        {otpSuccess && <OtpSuccess />}
-      </div>
+      <Container className="mycontainer" fluid>
+        <Row className="myrow" noGutters>
+          <Col className="mycolumn" lg={3}></Col>
+          <Col className="mycolumn midcolumn" lg={6}>
+            {mainScreen && <App />}
+            {askOtp && (
+              <div className="innerdiv">
+                <div id="otpsentimage">
+                  <img
+                    src={img1}
+                    style={{ height: "130px", width: "130px" }}
+                    alt="Sent OTP"
+                  />
+                </div>
+                <div>
+                  <span>Please verify Mobile number</span>
+                </div>
+                <div>
+                  <span>An OTP is sent to {teleNumber}</span>
+                </div>
+
+                <button onClick={this.handleClick}>Change Phone Number</button>
+                <form onSubmit={this.handleSubmit}>
+                  <label>
+                    <input
+                      value={this.state.value}
+                      onChange={this.handleChange}
+                    />
+                  </label>
+                  <div>
+                    <span>Didn't receive the code!</span>
+                    <button onClick={this.handleClick1}> Resend OTP </button>
+                  </div>
+                  <input type="submit" value="Verify" />
+                </form>
+              </div>
+            )}
+            {otpSuccess && <OtpSuccess />}
+          </Col>
+          <Col className="mycolumn" lg={3}></Col>
+        </Row>
+      </Container>
     );
   }
 }
